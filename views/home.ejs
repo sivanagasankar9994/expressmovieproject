@@ -1,0 +1,41 @@
+<!-- <h1>Hello Home page </h1>
+<h1> <%= title %></h1>
+<ul>
+    <% for(var i = 0; i < movies.length; i++){%>
+        <li> <h4> <%=movies[i] %> </h4> </li>
+    <%}%>
+    </ul> -->
+
+    <!doctype html>
+<html lang="en">
+  <head>
+   <% include partials/head.ejs %>
+    <title>Hello, world!</title>
+  </head>
+  <body>
+      <% include partials/header.ejs %>
+    <div id="hero-image">
+      <h1 id="hero-title"><%= title %></h1>
+    </div>
+    <div id="posters-wrapper" class="content-padding clearfix">
+      
+	  <% for (var i = 0; i < movies.length; i++) { %>
+	  	<div class="poster">
+	  		<a href="/star_wars_episode/<%= movies[i].episode_number %>">
+			  	<img src="/images/<%= movies[i].poster %>" class="img-responsive">
+			  	<div class="poster-info-overlay">
+			  		<h3><%= movies[i].title %></h3>
+			  		<h4>View More <i class="fa fa-arrow-right"></i></h4>
+			  	</div>
+		  	</a>
+			</div>	  
+	  <% } %>
+    </div>
+    <!-- <% for (var i = 0; i < movies.length; i++) { %>
+      <img src="/images/<%= movies[i].poster %>" class="img-responsive">
+      <% } %> -->
+      
+	<% include partials/footer.ejs %>
+    <% include partials/script.ejs %>
+</body>
+</html>
